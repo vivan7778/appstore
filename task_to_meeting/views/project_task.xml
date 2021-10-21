@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_task_form2_inherit" model="ir.ui.view">
+        <field name="name">project_task_form_inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button type="action" name="task_to_meeting.set_metting" string="Create meeting" class="oe_highlight" help="Finish Order"/>
+            </xpath>
+            <field name="date_last_stage_update" position="after">
+                <field name="calendar_ids" invisible="1"/>
+                <field name="check_meeting" invisible="1"/>
+            </field>
+            <xpath expr="//form/sheet/div" position="inside">
+                 <button name="preview_meeting" type="object" class="oe_stat_button" icon="fa-book" attrs="{'invisible': [('check_meeting', '=', False)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Meeting</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

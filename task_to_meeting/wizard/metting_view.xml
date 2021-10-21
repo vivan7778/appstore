@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model='ir.ui.view' id='create_metting_wizard_form'>
+            <field name='name'>metting.wizard.form</field>
+            <field name='model'>create.meeting</field>
+            <field name='arch' type='xml'>
+                <form string='Create Metting' >
+                    <sheet>
+                        <group>
+                            <group col="2">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name='action_create_metting'
+                                string='Set metting'
+                                class='oe_highlight'
+                                type='object'/>
+                        <button special="cancel"
+                                string="Cancel"
+                                type="object"
+                                class="btn btn-default oe_inline"/>
+                    </footer>
+                </form>
+        </field>
+    </record>
+    <act_window id="set_metting" name="Create metting" res_model="create.meeting" src_model="project.task" view_mode="form" target="new"/>
+</odoo>
